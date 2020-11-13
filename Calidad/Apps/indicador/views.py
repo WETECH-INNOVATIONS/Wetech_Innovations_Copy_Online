@@ -131,7 +131,7 @@ def Tipo_reporteList(request):
     #     a.save()
     #     print(fila)
     a= np.random.random()
-    print('esta es la variable aleatoria', a)
+    print('esta es la variable aleatoria', a) 
 
     tiporeporte = Tipo_reporte.objects.all()
     contexto = {'tiporeportes':tiporeporte}
