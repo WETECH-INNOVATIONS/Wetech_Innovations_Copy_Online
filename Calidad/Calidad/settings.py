@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'Calidad.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'prueba2',
+            'NAME': 'we_gias',
             'USER': 'postgres',
             'PASSWORD': '09241995',
             'HOST': 'localhost',
