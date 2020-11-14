@@ -32,6 +32,10 @@ urlpatterns = [
     #LOGOUT
     path('logout/',LogoutView.as_view(), name ='logout'),#@
 
+    #STREAMING Y DASBOARD
+    path('Streaming/', Streaming, name='Streaming'),
+    path('Dashboard/', Dashboard, name='Dashboard'),
+
     #ESTOS SON LOS TEMAS DE LA APLICACION
     path('power_bi/', api_bi, name='api_bi'),
     path('tema_1/', tema_1, name='tema_1'),

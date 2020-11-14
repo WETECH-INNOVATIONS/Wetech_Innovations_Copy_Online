@@ -100,6 +100,16 @@ def index(request):
 
     return render(request, 'base/index.html',contexto)
 
+
+def Streaming(request,*args, **kwargs):
+    return render(request, 'indicadores/Streaming.html')
+
+def Dashboard(request,*args, **kwargs):
+    return render(request, 'indicadores/Dashboard.html')
+    
+
+
+
 #ESTOS SON LOS TEMAS DE LA PAGINA
 def tema_1(request,*args, **kwargs):
     return render(request, 'base/TemaBlue/tema_1.html')
