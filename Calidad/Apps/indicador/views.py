@@ -1,14 +1,19 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse_lazy
+from django.http import JsonResponse
+from django.views.generic import TemplateView
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
+
 from .models import *
 from .forms import *
-# from .api_powerbi import *
-from django.http import JsonResponse
 
 import numpy as np
 import xlrd
 import os
+from datetime import datetime
 # from .funciones.prueba import *
 # Create your views here.
 
@@ -101,14 +106,61 @@ def index(request):
     return render(request, 'base/index.html',contexto)
 
 
-def Streaming(request,*args, **kwargs):
-    return render(request, 'indicadores/Streaming.html')
+class Streaming(TemplateView):
+    template_name = 'indicadores/Streaming.html'
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_graph_sales_year_month(self):
+        data = []
+        try:
+            for m in range(1, 13):
+                a = np.random.randint(10,100)
+                data.append(a)
+            # for m in range(1, 13):
+
+            #     x = datetime.now()
+            #     y= np.random.randint(10,100)
+
+            #     data.append({
+            #         'x': x,
+            #         'y': y
+            #     })
+        except:
+            pass
+        return data
+
+    def post(self, request, *args, **kwargs):
+        data = {}
+        try:
+            action = request.POST['action']
+            if action == 'get_graph_sales_year_month':
+                data  = {
+                    'name': 'Valor de venta',
+                    'showInLegend': False,
+                    'colorByPoint': True,
+                    'data': self.get_graph_sales_year_month()
+                }
+            else:
+                data['error'] = 'Ha ocurrido un error'
+        except Exception as e:
+            data['error'] = str(e)
+        return JsonResponse(data, safe=False)
+
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['panel'] = 'Panel de administrador'
+    #     context['graph_sales_year_month'] = self.get_graph_sales_year_month()
+    #     return context
+
+
 
 def Dashboard(request,*args, **kwargs):
     return render(request, 'indicadores/Dashboard.html')
     
-
-
 
 #ESTOS SON LOS TEMAS DE LA PAGINA
 def tema_1(request,*args, **kwargs):

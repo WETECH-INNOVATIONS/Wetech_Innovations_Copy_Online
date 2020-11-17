@@ -33,7 +33,7 @@ urlpatterns = [
     path('logout/',LogoutView.as_view(), name ='logout'),#@
 
     #STREAMING Y DASBOARD
-    path('Streaming/', Streaming, name='Streaming'),
+    path('Streaming/', Streaming.as_view(), name='Streaming'),
     path('Dashboard/', Dashboard, name='Dashboard'),
 
     #ESTOS SON LOS TEMAS DE LA APLICACION
