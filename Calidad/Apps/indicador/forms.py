@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.admin import widgets
+from django.contrib.auth.models import User
 import datetime
 from .models import *
 
@@ -363,6 +364,9 @@ class NormaForm(forms.ModelForm):
             self.fields[field].widget.attrs.update({  
                 'class': 'form-control'  
             })
+        self.fields['descripcion_norma'].widget.attrs.update({
+            'style': 'margin-top: 0px; margin-bottom: 0px; height: 187px;'
+        })
 
 class Nivel_ReferenciaForm(forms.ModelForm):
 
@@ -426,4 +430,44 @@ class Tipo_ProcForm(forms.ModelForm):
         for field in iter(self.fields):  
             self.fields[field].widget.attrs.update({  
                 'class': 'form-control'  
+            })
+
+class UsuarioForm(forms.ModelForm):
+    class Meta:
+        model = Usuario
+
+        fields =(
+            'rol',
+            'cargo',
+        )
+
+    def __init__(self, *args, **kwargs):  
+        super().__init__(*args, **kwargs)  
+        for field in iter(self.fields):  
+            self.fields[field].widget.attrs.update({  
+                'class': 'form-control'  
+            })
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        
+        fields=(
+            # '__all__'
+            'first_name',
+            'last_name',
+            'username',
+            'email',
+            'password',
+        )
+        
+    def __init__(self, *args, **kwargs):  
+        super().__init__(*args, **kwargs)  
+        for field in iter(self.fields):  
+            self.fields[field].widget.attrs.update({  
+                'class': 'form-control'  
+            })
+        self.fields['password'].widget.attrs.update({  
+                'type': 'password'  
             })

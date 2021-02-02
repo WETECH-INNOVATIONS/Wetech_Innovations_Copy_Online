@@ -5,43 +5,52 @@
     <div class="form-group row">
         <div class="col-lg-6">
             <label>Título del Plan:</label>
-            <input disabled type="text" class="form-control" value="{{plan_mejora.titulo}}"/>
+            <input disabled type="text" class="form-control" value="{{plan_mejora.titulo}}" />
         </div>
 
         <div class="col-lg-6">
             <label>Indicador:</label>
-            <input disabled type="text" class="form-control" value="{{plan_mejora.lenar_Indicador.indicador.nombre}}"/>
-            </div>
+            <input disabled type="text" class="form-control" value="{{plan_mejora.lenar_Indicador.indicador.nombre}}" />
+        </div>
 
     </div>
 
     <div class="form-group row">
-        
+
         <div class="col-lg-6">
-        <label>Fecha de Inicio:</label>
-        <input disabled type="text" class="form-control" value="{{plan_mejora.fecha_inicio}}"/>
+            <label>Fecha de Inicio:</label>
+            <input disabled type="text" class="form-control" value="{{plan_mejora.fecha_inicio}}" />
         </div>
 
         <div class="col-lg-6">
             <label>Fecha de Terminación:</label>
             <div class="input-group">
-                <input disabled type="text" class="form-control" value="{{plan_mejora.fecha_termin}}"/>
+                <input disabled type="text" class="form-control" value="{{plan_mejora.fecha_termin}}" />
             </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-lg-6">
+            <label>¿CUANTO COSTARÁ?:</label>
+            <input disabled type="text" class="form-control" value= "$ {{plan_mejora.cuento_costara}}"/> 
+            <span class="form-text text-muted">Escriba el valor del plan</span>
         </div>
     </div>
 
 
     <div class="form-group row">
         <div class="col-lg-6">
-        <label>¿QUE?:</label>
-        <input disabled type="textarea" class="form-control" value="{{plan_mejora.que}}"/>
-        <span class="form-text text-muted">Actividad a Realizar</span>
+            <label>¿QUE?:</label>
+            <textarea disabled class="form-control" name="que" id="que" cols="30"
+                rows="10">{{plan_mejora.que}}</textarea>
+            <span class="form-text text-muted">Actividad a Realizar</span>
         </div>
-        
+
         <div class="col-lg-6">
-        <label>¿PARA QUE?:</label>
-            <input disabled type="textarea" class="form-control" value="{{plan_mejora.para_que}}"/>  
-        <span class="form-text text-muted">Propósito de la Actividad</span>
+            <label>¿PARA QUE?:</label>
+            <textarea disabled class="form-control" cols="30" rows="10">{{plan_mejora.para_que}}</textarea>
+            <span class="form-text text-muted">Propósito de la Actividad</span>
         </div>
     </div>
 
@@ -49,7 +58,7 @@
         <div class="col-lg-6">
             <label>¿QUIEN?:</label>
             <div class="input-group">
-                <input disabled type="textarea" class="form-control" value="{{plan_mejora.quien}}"/>  
+                <textarea disabled class="form-control" cols="30" rows="10">{{plan_mejora.quien}}</textarea>
             </div>
             <span class="form-text text-muted">Responsable</span>
 
@@ -57,23 +66,17 @@
 
         <div class="col-lg-6">
             <label>¿DONDE?:</label>
-                <input disabled type="textarea" class="form-control" value="{{plan_mejora.donde}}"/>  
+            <textarea disabled class="form-control" cols="30" rows="10">{{plan_mejora.donde}}</textarea>
             <span class="form-text text-muted">Lugar Donde se Realiza la Actividad</span>
         </div>
 
     </div>
 
     <div class="form-group row">
-        <div class="col-lg-6">
-        <label>¿COMO?:</label>
-        <input disabled type="textarea" class="form-control" value="{{plan_mejora.como}}"/> 
-        <span class="form-text text-muted">Estrategias para Realizar la Actividad</span>
-        </div>
-
-        <div class="col-lg-6">
-            <label>¿CUANTO COSTARÁ?:</label>
-            <input disabled type="text" class="form-control" value= "$ {{plan_mejora.cuento_costara}}"/> 
-            <span class="form-text text-muted">Escriba el valor del plan</span>
+        <div class="col-lg-12">
+            <label>¿COMO?:</label>
+            <textarea disabled class="form-control" cols="30" rows="10">{{plan_mejora.como}}</textarea>
+            <span class="form-text text-muted">Estrategias para Realizar la Actividad</span>
         </div>
     </div>
 </div>

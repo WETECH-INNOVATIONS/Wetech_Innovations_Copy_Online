@@ -1,7 +1,7 @@
 {% extends 'base/index.html' %}
 
 {% block titulo %}
-    <title>Crear Estado Acción</title>
+    <title>Crear Usuario</title>
 {% endblock titulo %}
 
 
@@ -18,20 +18,18 @@
                     <form class="form" method="post">
                         {% csrf_token %}
                         <div class="card-body">
-                            <h3 class="kt-section__title">Registrar Estado Acción</h3>
+                            <h3 class="kt-section__title">Registrar Usuario con Error</h3>
                             <br>
 
                             <div class="form-group">
-                                <label>Estado de Avance:</label>
-                                {{ form.estado_Avance}}
-                                <span class="form-text text-muted">Por Favor Ingrese el Estado de Avance</span>
+                                {{ form2.as_table}}
+                                {{ form.rol}}
+                                {{ form.cargo}}
+                                <!-- <label>Estado de Avance:</label>
+                                {{ form.estado}}
+                                <span class="form-text text-muted">Por Favor Ingrese el Estado de Avance</span> -->
                             </div>
 
-                            <div class="form-group">
-                                <label>Estado Acción:</label>
-                                {{ form.accion}}
-                                <span class="form-text text-muted">Por Favor Ingrese el Estado de Acción</span>
-                            </div>
                         </div>
 
                         <div class="card-footer">
@@ -42,7 +40,7 @@
                     
                                 <div class="col-lg-6 text-right">
                                     <button type="reset" class="btn btn-secondary">Borrar</button>
-                                    <a class="btn btn-danger" href="{% url 'Estado_Accion_list' %}">Cancelar</a>
+                                    <!-- <a class="btn btn-danger" href="{% url 'Estado_Avance_list' %}">Cancelar</a> -->
                                 </div>
                             </div>
                         </div>
@@ -56,6 +54,3 @@
 </div>
 
 {% endblock content %}
-
-
-

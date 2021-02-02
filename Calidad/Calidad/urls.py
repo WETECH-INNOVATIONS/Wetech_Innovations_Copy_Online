@@ -23,6 +23,7 @@ from Apps.indicador.views import *
 urlpatterns = [
     
     path('usuario/', include('Apps.usuario.urls')),
+    path('Crear_Usuario/', Crear_Usuario.as_view(), name='Crear_Usuario'),
 
     path('admin/', admin.site.urls),
     path('', index, name='index'),#@

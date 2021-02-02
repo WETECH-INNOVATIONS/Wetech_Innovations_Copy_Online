@@ -250,6 +250,15 @@ License: You must have a valid license purchased only from themes.getbootstrap.c
 												</a>
 											</li>
 
+											<li class="menu-item" aria-haspopup="true">
+												<a href="{% url 'Crear_Usuario' %}" class="menu-link">
+													<i class="menu-bullet menu-bullet-dot">
+														<span></span>
+													</i>
+													<span class="menu-text">Crear Usuarios</span>
+												</a>
+											</li>
+
 										</ul>
 									</div>
 								</li>
@@ -334,90 +343,7 @@ License: You must have a valid license purchased only from themes.getbootstrap.c
 										<i class="menu-arrow"></i>
 										<ul class="menu-subnav">
 
-											<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-												<a href="javascript:;" class="menu-link menu-toggle">
-													<i class="menu-bullet menu-bullet-line">
-														<span></span>
-													</i>
-													<span class="menu-text">Seguimiento Eficacia</span>
-													<i class="menu-arrow"></i>
-												</a>
-												<div class="menu-submenu">
-													<i class="menu-arrow"></i>
-													<ul class="menu-subnav">
-													    
 											
-													    <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-            												<a href="javascript:;" class="menu-link menu-toggle">
-            													<i class="menu-bullet menu-bullet-line">
-            														<span></span>
-            													</i>
-            													<span class="menu-text">Configuración</span>
-            
-            													<i class="menu-arrow"></i>
-            												</a>
-            
-            												<div class="menu-submenu">
-            													<i class="menu-arrow"></i>
-            													<ul class="menu-subnav">
-            													    
-            													    <li class="menu-item" aria-haspopup="true">
-            															<a href="{% url 'Estado_Avance_list' %}" class="menu-link">
-            																<i class="menu-bullet menu-bullet-dot">
-            																	<span></span>
-            																</i>
-            																<span class="menu-text">Estado de Avance</span>
-            															</a>
-            														</li>
-            														<li class="menu-item" aria-haspopup="true">
-            															<a href="{% url 'Estado_Accion_list' %}" class="menu-link">
-            																<i class="menu-bullet menu-bullet-dot">
-            																	<span></span>
-            																</i>
-            																<span class="menu-text">Estado de la Acción</span>
-            															</a>
-            														</li>
-            														<li class="menu-item" aria-haspopup="true">
-            															<a href="{% url 'Porcentaje_Avance_list' %}" class="menu-link">
-            																<i class="menu-bullet menu-bullet-dot">
-            																	<span></span>
-            																</i>
-            																<span class="menu-text">Porcentaje de Avance</span>
-            															</a>
-                                                                    </li>
-                                                                    <li class="menu-item" aria-haspopup="true">
-            															<a href="{% url 'Estado_Hallazgo_list' %}" class="menu-link">
-            																<i class="menu-bullet menu-bullet-dot">
-            																	<span></span>
-            																</i>
-            																<span class="menu-text">Nombre Hallazgo</span>
-            															</a>
-                                                                    </li>
-                                                                    <li class="menu-item" aria-haspopup="true">
-            															<a href="{% url 'Oportunidad_Ejecucion_list' %}" class="menu-link">
-            																<i class="menu-bullet menu-bullet-dot">
-            																	<span></span>
-            																</i>
-            																<span class="menu-text">Oportunidad de Ejecución</span>
-            															</a>
-            														</li>
-            													</ul>
-            												</div>
-        
-            											</li>
-													    
-												        
-												        <li class="menu-item" aria-haspopup="true">
-        													<a href="{% url 'Seguimiento_Eficacia_list'  %}" class="menu-link">
-        														<i class="menu-bullet menu-bullet-line">
-        															<span></span>
-        														</i>
-        														<span class="menu-text"> Crear Seguimiento</span>
-        													</a>
-        												</li>
-													</ul>
-												</div>
-											</li>
 											
 											
 											<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
@@ -508,7 +434,92 @@ License: You must have a valid license purchased only from themes.getbootstrap.c
 												</li>
 												
 
-                                            </li>
+											</li>
+											
+											<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+												<a href="javascript:;" class="menu-link menu-toggle">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Seguimiento Eficacia</span>
+													<i class="menu-arrow"></i>
+												</a>
+												<div class="menu-submenu">
+													<i class="menu-arrow"></i>
+													<ul class="menu-subnav">
+													    
+											
+													    <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+            												<a href="javascript:;" class="menu-link menu-toggle">
+            													<i class="menu-bullet menu-bullet-line">
+            														<span></span>
+            													</i>
+            													<span class="menu-text">Configuración</span>
+            
+            													<i class="menu-arrow"></i>
+            												</a>
+            
+            												<div class="menu-submenu">
+            													<i class="menu-arrow"></i>
+            													<ul class="menu-subnav">
+            													    
+            													    <li class="menu-item" aria-haspopup="true">
+            															<a href="{% url 'Estado_Avance_list' %}" class="menu-link">
+            																<i class="menu-bullet menu-bullet-dot">
+            																	<span></span>
+            																</i>
+            																<span class="menu-text">Estado de Avance</span>
+            															</a>
+            														</li>
+            														<li class="menu-item" aria-haspopup="true">
+            															<a href="{% url 'Estado_Accion_list' %}" class="menu-link">
+            																<i class="menu-bullet menu-bullet-dot">
+            																	<span></span>
+            																</i>
+            																<span class="menu-text">Estado de la Acción</span>
+            															</a>
+            														</li>
+            														<li class="menu-item" aria-haspopup="true">
+            															<a href="{% url 'Porcentaje_Avance_list' %}" class="menu-link">
+            																<i class="menu-bullet menu-bullet-dot">
+            																	<span></span>
+            																</i>
+            																<span class="menu-text">Porcentaje de Avance</span>
+            															</a>
+                                                                    </li>
+                                                                    <li class="menu-item" aria-haspopup="true">
+            															<a href="{% url 'Estado_Hallazgo_list' %}" class="menu-link">
+            																<i class="menu-bullet menu-bullet-dot">
+            																	<span></span>
+            																</i>
+            																<span class="menu-text">Nombre Hallazgo</span>
+            															</a>
+                                                                    </li>
+                                                                    <li class="menu-item" aria-haspopup="true">
+            															<a href="{% url 'Oportunidad_Ejecucion_list' %}" class="menu-link">
+            																<i class="menu-bullet menu-bullet-dot">
+            																	<span></span>
+            																</i>
+            																<span class="menu-text">Oportunidad de Ejecución</span>
+            															</a>
+            														</li>
+            													</ul>
+            												</div>
+        
+            											</li>
+													    
+												        
+												        <li class="menu-item" aria-haspopup="true">
+        													<a href="{% url 'Seguimiento_Eficacia_list'  %}" class="menu-link">
+        														<i class="menu-bullet menu-bullet-line">
+        															<span></span>
+        														</i>
+        														<span class="menu-text"> Crear Seguimiento</span>
+        													</a>
+        												</li>
+													</ul>
+												</div>
+											</li>
 
 										</ul>
 									</div>

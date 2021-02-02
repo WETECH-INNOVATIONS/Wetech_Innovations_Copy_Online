@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 #esta clase representa el tipo de reporte que el usuario tiene dentro de la organizacion 
@@ -45,9 +46,46 @@ class Cargo(models.Model):
     def __str__(self):
         return '%s' % (self.nombre_cargo)
 
+
+#crear usuario
+class Usuario(models.Model):
+    master = 'Master'
+    digitador = 'Digitador'
+    lector = 'Lector'
+    roles = [
+        (master , 'Master'),
+        (digitador , 'Digitador'),
+        (lector , 'Lector'),
+    ]
+    user = models.OneToOneField(User, on_delete = models.PROTECT ,null=True)
+    rol = models.CharField('Rol',max_length=50, choices=roles, default=lector, null=True)
+    cargo = models.ForeignKey(Cargo, on_delete = models.CASCADE, verbose_name='Cargo', null= True)
+
+
 class Norma(models.Model):
+    ley = 'Ley'
+    decreto = 'Decreto'
+    resolucion = 'Resolución'
+    circular = 'Circular'
+    acuerdo = 'Acuerdo'
+
+    tipos = [
+        (ley , 'Ley'),
+        (decreto , 'Decreto'),
+        (resolucion , 'Resolución'),
+        (circular , 'Circular'),
+        (acuerdo , 'Acuerdo'),
+    ]
+
     nombre_norma = models.CharField('Nombre de la Norma', max_length=100, null = True)
     descripcion_norma = models.TextField('Descripción Norma', null=True)
+    tipo_documento = models.CharField('Tipo de Documento', max_length=12, choices=tipos, default=ley)
+    num_norma = models.CharField('Número Norma', max_length=10, null=True)
+    fecha_emision = models.DateField('Fecha Emision', null=True)
+    emitido = models.CharField('Emitido Por', max_length=100, null=True)
+    estado = models.CharField('Estado', max_length=100, null=True)
+    dir_url = models.CharField('Direccion URL', max_length=200, null=True)
+    obs = models.TextField('Observación', null=True)
 
     def __str__(self):
         return '%s' % (self.nombre_norma)
@@ -150,7 +188,7 @@ class Indicador(models.Model):
     formula = models.CharField('Formula', null = True, max_length=200, blank=True)
     cargo = models.ForeignKey(Cargo, on_delete = models.CASCADE, verbose_name='Sistema de Procesamineto', null= True)
     cargo = models.ForeignKey(Cargo, on_delete = models.CASCADE, verbose_name='Responsable', null= True)
-    vigil_control = models.CharField('Vigiancia y Control', null = True, max_length=30)
+    vigil_control = models.CharField('Vigiancia y Control', null = True, max_length=150)
 
     def __str__(self):
         return '%s' % (self.nombre)

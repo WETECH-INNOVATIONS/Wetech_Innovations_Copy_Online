@@ -298,7 +298,14 @@
                                 <tr>
                                     <th title="Field #1">ID</th>
                                     <th title="Field #2">Norma</th>
-                                    <th title="Field #2"> Descripción de la Norma</th>
+                                    <th title="Field #2">Tipo de Documento</th>
+                                    <th title="Field #2">Número Norma</th>
+                                    <th title="Field #2">Fecha Emision</th>
+                                    <th title="Field #2">Emitido Por</th> 
+                                    <th title="Field #2">Estado</th>
+                                    <th title="Field #2">Direccion URL</th>
+                                    <th title="Field #2">Descripción Norma</th>
+                                    <th title="Field #2">Observación</th>
                                     <th title="Field #2">Acción</th>
 
                                 </tr>
@@ -308,7 +315,14 @@
                                     <tr>
                                         <td>{{Norma.id}}</td>
                                         <td>{{Norma.nombre_norma}}</td>
+                                        <td>{{Norma.tipo_documento}}</td>
+                                        <td>{{Norma.num_norma}}</td>
+                                        <td>{{Norma.fecha_emision}}</td>
+                                        <td>{{Norma.emitido}}</td>
+                                        <td>{{Norma.estado}}</td>
+                                        <td><a href={{Norma.dir_url}} target="_blank" >Ver</a> </td>
                                         <td>{{Norma.descripcion_norma}}</td>
+                                        <td>{{Norma.obs}}</td>
                                         
                                         <!-- <td nowrap="" style="display: none;">
                                             <span class="dropdown">

@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.views.generic import  CreateView
+from django.contrib.auth.models import User
 from .models import *
 from .forms import *
 # from .api_powerbi import *
@@ -9,8 +11,37 @@ from django.http import JsonResponse
 import numpy as np
 import xlrd
 import os
-# from .funciones.prueba import *
 # Create your views here.
+
+class Crear_Usuario(CreateView): #crear usuario
+    model = Usuario
+    template_name = 'base/Usuario.html'
+    form_class = UsuarioForm
+    second_form_class = UserForm
+    success_url = reverse_lazy('Streaming')
+    
+    def get_context_data(self,**kwargs):
+        context = super(Crear_Usuario, self).get_context_data(**kwargs)
+        if 'form' not in context:
+            context['form'] = self.form_class(self.request.GET)
+        if 'form2' not in context:
+            context['form2'] = self.second_form_class(self.request.GET)
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object
+        form = self.form_class(request.POST)
+        form2 = self.second_form_class(request.POST)
+
+        if form.is_valid() and form2.is_valid():
+            usuario = form.save(commit =False)
+            usuario.user = form2.save()
+            usuario.save()
+            return HttpResponseRedirect(self.get_success_url())
+        else:
+            return render(request,'base/Usuario_Error.html')
+
+
 
 def api_bi(request):
     import pandas as pd
